@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <stack>
+#include <iostream>
 
 using namespace std;
 
@@ -10,28 +11,29 @@ int solution(vector<vector<int>> board, vector<int> moves)
     stack<int> bucket;
     int target;
     int character;
-    int temp;
 
-    for (int i = 0; i < moves.size(); i++) {
-        target = moves[i];
-        for (int j = 0; j < board[0].size(); j++) {
+    for (int i = 0; i < (int)moves.size(); i++) {
+        target = moves[i] - 1;
+        for (int j = 0; j < (int)board[0].size(); j++) {
             character = board[j][target];
             if (character != 0) {
-                answer++;
+                board[j][target] = 0;
+                if (bucket.empty()) {
+                    bucket.push(character);
+                    break;
+                }
                 if (character == bucket.top()) {
                     bucket.pop();
-                }
-                else {
+                    answer++;
+                } else {
                     bucket.push(character);
                 }
-                board[j][target] = 0;
                 break;
             }
-        
         }
     }
 
-    return answer;
+    return answer*2;
 }
 
 int main(void)
