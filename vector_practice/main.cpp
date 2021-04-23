@@ -15,7 +15,7 @@ int main(void)
     vector<int> v4(v3); //v3를 복사해서 생성됨.
     
     vector<int>::size_type i;
-    
+    cout << "v3의 맨 뒤의 요소 : " << v3.back() << endl; 
     v1.assign(5, 2); //2의 값으로 5개의 원소 할당.
     for (i = 0; i < v1.size(); ++i) 
     {
