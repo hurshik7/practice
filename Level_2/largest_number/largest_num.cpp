@@ -1,44 +1,32 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
-string num_to_string(int num)
+bool cmp(string a, string b)
 {
-    string ret;
-    int temp;
-    while (num != 0) {
-        temp = num % 10;
-        ret.insert(ret.begin(), temp + '0');
-        num /= 10;
-    }
-    return ret;
+    return a + b > b + a;
 }
 
+//string을 비교하면 편하다.
 string solution(vector<int> numbers) 
 {
     string answer = "";
-    int temp;
-    int max_idx;
-    int max = -1;
-    vector<int> digits(numbers);
-
-    while (numbers.size() > 0) {
-        max = -1;
-        for (int i = 0; i < numbers.size(); i++) {
-            temp = numbers[i];
-            while (temp >= 10) {
-                temp /= 10;
-            }
-            if (temp >= max) {
-                max_idx = i;
-                max = temp;
-            }
-        }
-        answer.append(num_to_string(numbers[max_idx]));
-        numbers.erase(numbers.begin() + max_idx);
+    vector<string> num;
+    for (auto i : numbers) {
+        num.push_back(to_string(i));
     }
+    sort(num.begin(), num.end(), cmp);
+    if (num[0] == "0") {
+        return "0";
+    }
+
+   for (auto j : num) {
+        answer += j;
+    }
+    
     return answer;
 }
 
