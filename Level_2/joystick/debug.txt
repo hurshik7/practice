@@ -1,0 +1,13 @@
+
+
+init : J:AA
+name : JAN
+
+currnet = 0;    r_count : 0     r_temp_idx : 1
+temp : 9        l_count : 0     l_temp_idx :
+
+answer : 9
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+
