@@ -21,13 +21,9 @@ int solution(vector<vector<string>> clothes)
     int temp = 1;
     map<string, int>::iterator it;
     for (it = m.begin(); it != m.end(); it++) {
-        temp *= it->second;
-        answer += it->second;
+        temp *= (it->second + 1);
     }
-    if (m.size() == 1) {
-        return answer;
-    }
-    answer += temp;
+    answer = temp - 1;
     return answer;
 }
 
@@ -38,9 +34,4 @@ int main(void)
     cout << solution({{"a","aa"}, {"b","aa"}, {"c","aa"}, {"aa","bb"}, {"bb","bb"}, {"c_c","bb"}, {"aaa","cc"}, {"bbb","cc"}, {"ccc","cc"}}) << endl;
     return 0;
 }
-
-aa bb  cc
-3  3   3
-
-9
 
