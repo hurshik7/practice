@@ -22,6 +22,12 @@ int main(void)
         cout << i << ", ";
     }
     cout << endl;
- 
+
+    cout << "--------------------" << endl;
+    string a = "Hurshik";
+    cout << a.find('s') << endl;
+    if (a.find('S') == string::npos) {
+        cout << "npos!!" << endl;
+    } 
     return 0;
 }
