@@ -1,11 +1,9 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
-typedef struct node node_t;
-
 typedef struct node {
     int value;
-    node_t* next;
+    struct node* next;
 } node_t;
 
 void print_list(const node_t* head);

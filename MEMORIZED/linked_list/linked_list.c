@@ -26,7 +26,7 @@ void destroy_list(node_t* head)
 
 void add_front(node_t** phead, int value)
 {
-    node_t* new = malloc(sizeof(node_t));
+    node_t* new = (node_t*)malloc(sizeof(node_t));
     new->value = value;
     new->next = *phead;
     *phead = new;
@@ -35,7 +35,7 @@ void add_front(node_t** phead, int value)
 void add_sorted(node_t** phead, int value)
 {
     node_t** pp = phead;
-    node_t* new = malloc(sizeof(node_t));
+    node_t* new = (node_t*)malloc(sizeof(node_t));
     new->value = value;
     while (*pp != NULL) {
         if ((*pp)->value > value) {
