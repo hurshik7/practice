@@ -6,9 +6,8 @@ int my_atoi(const char* str)
 	int ret = 0;
 	int sign = 1;
 	const char* ptr = str;
-	printf("atoi start\n");
+	
 	while (*ptr == ' ') {
-		printf("while space\n");
 		ptr++;
 	}
 
@@ -22,19 +21,21 @@ int my_atoi(const char* str)
 	}
 	
 	while (*ptr != '\0') {
-		char temp = *ptr;
-		if (temp < '0' || temp > '9') {
+		char temp = *ptr++;
+		if (temp == ' ') {
+			continue;
+		} else if (temp < '0' || temp > '9') {
 			return 0;
 		} 
 		ret = ret * 10 + (temp - '0');
-	}
+	}	
 	return sign * ret;
 }
 
 int main(void)
 {
-	printf("program start!\n");
-	printf("%d\n", my_atoi("123"));
+	printf("%d\n", my_atoi("123   "));
+	printf("%d\n", my_atoi("-1123"));
 	printf("%d\n", my_atoi("    a1234"));
 	printf("%d\n", my_atoi("    -1234"));
 	printf("%d\n", my_atoi("    12sdf34"));
