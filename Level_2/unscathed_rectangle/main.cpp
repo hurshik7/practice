@@ -3,18 +3,24 @@
 
 using namespace std;
 
-long long solution(int w,int h) 
+long long GetGCD(int x, int y)
 {
-	long long answer = w * h;
-	double y_prev = 0;
-
-	for	(int i = 1; i < w + 1; i++) 
+	while (y != 0)
 	{
-		double y_now = static_cast<long long>(i) * static_cast<long>(h) / static_cast<double>(w);
-		answer -= ceil(y_now) - floor(y_prev);
-		y_prev = y_now;
+		int r = x % y;
+		x = y;
+		y = r;
 	}
+	
+	return x;
+}
 
+
+long long solution(int w, int h) 
+{
+	long long answer = 1;
+	long long gcd = GetGCD(static_cast<long long>(w), h);
+	answer = static_cast<long long>(static_cast<long long>(w) * h) - (static_cast<long long>(w) + h - gcd);
 	return answer;
 }
 
