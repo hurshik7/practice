@@ -6,7 +6,7 @@
 
 ## General Info
 This is my personal study repository. I mainly push coding practice and LeetCode solving.
-"One commit per a day" is my new motto.
+Aim to "One commit per a day."
 	
 ## Technologies
 Technologies used for this project:
